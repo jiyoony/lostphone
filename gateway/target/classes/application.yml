@@ -1,0 +1,76 @@
+server:
+  port: 8088
+
+---
+
+spring:
+  profiles: default
+  cloud:
+    gateway:
+#<<< API Gateway / Routes
+      routes:
+        - id: lostphone
+          uri: http://localhost:8082
+          predicates:
+            - Path=/lossmanagements/**, 
+        - id: phonemanagement
+          uri: http://localhost:8083
+          predicates:
+            - Path=/phonemanagements/**, 
+        - id: tempphonemanagement
+          uri: http://localhost:8084
+          predicates:
+            - Path=/rentalPhones/**, 
+        - id: frontend
+          uri: http://localhost:8080
+          predicates:
+            - Path=/**
+#>>> API Gateway / Routes
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "*"
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
+
+---
+
+spring:
+  profiles: docker
+  cloud:
+    gateway:
+      routes:
+        - id: lostphone
+          uri: http://lostphone:8080
+          predicates:
+            - Path=/lossmanagements/**, 
+        - id: phonemanagement
+          uri: http://phonemanagement:8080
+          predicates:
+            - Path=/phonemanagements/**, 
+        - id: tempphonemanagement
+          uri: http://tempphonemanagement:8080
+          predicates:
+            - Path=/rentalPhones/**, 
+        - id: frontend
+          uri: http://frontend:8080
+          predicates:
+            - Path=/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "*"
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
+server:
+  port: 8080
