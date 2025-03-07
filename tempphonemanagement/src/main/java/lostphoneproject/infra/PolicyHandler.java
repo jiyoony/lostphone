@@ -39,8 +39,8 @@ public class PolicyHandler {
 
         // Sample Logic //
 
-        TemporaryPhoneApplicationCommand command = new TemporaryPhoneApplicationCommand();
-        RentalPhone.temporaryPhoneApplication(command);
+        // TemporaryPhoneApplicationCommand command = new TemporaryPhoneApplicationCommand();
+        // RentalPhone.temporaryPhoneApplication(command);
     }
 }
 //>>> Clean Arch / Inbound Adaptor
