@@ -37,8 +37,8 @@ public class PolicyHandler {
 
         // Sample Logic //
 
-        ReportLossCommand command = new ReportLossCommand();
-        Phonemanagement.reportLoss(command);
+        // ReportLossCommand command = new ReportLossCommand();
+        // Phonemanagement.reportLoss(command);
     }
 
     @StreamListener(
@@ -57,8 +57,8 @@ public class PolicyHandler {
 
         // Sample Logic //
 
-        CancellationOfLossReportCommand command = new CancellationOfLossReportCommand();
-        Phonemanagement.cancellationOfLossReport(command);
+        // CancellationOfLossReportCommand command = new CancellationOfLossReportCommand();
+        // Phonemanagement.cancellationOfLossReport(command);
     }
 }
 //>>> Clean Arch / Inbound Adaptor
